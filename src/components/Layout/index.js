@@ -1,4 +1,6 @@
 import React from 'react'
+import './Layout.css'
 export default function Layout (props) {
-  return <div>{props.children}</div>
+  const classes = 'Layout ' + props.classes || ''
+  return <div className={classes}>{props.children}</div>
 }
