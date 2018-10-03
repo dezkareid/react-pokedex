@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/Layout'
-
+import './App.css'
 export default class App extends React.Component {
   constructor (props) {
     super(props)
@@ -10,7 +10,7 @@ export default class App extends React.Component {
   }
   render () {
     return (
-      <Layout>
+      <Layout classes='Full-Page'>
         <h1>{this.state.title}</h1>
       </Layout>
     )
