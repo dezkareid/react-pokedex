@@ -5,13 +5,14 @@ import SearchInput from '../components/SearchInput'
 import ErrorBoundary from '../components/ErrorBoundary'
 import ErrorCharge from '../components/ErrorCharge'
 import PokeList from '../components/PokeList'
+import { getPokemons } from '../services/PokemonService'
 export default class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       title: 'Pokedex',
       search: '',
-      pokemons: [{ id: 1, name: 'Bulbasaur' }]
+      pokemons: []
     }
     this.onChangeSearch = this.onChangeSearch.bind(this)
   }
@@ -20,6 +21,11 @@ export default class App extends React.Component {
     this.setState({
       search: event.target.value
     })
+  }
+
+  componentDidMount () {
+    getPokemons()
+      .then((pokemons) => { this.setState({ pokemons }) })
   }
   render () {
     return (
