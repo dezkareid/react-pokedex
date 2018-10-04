@@ -7,6 +7,7 @@ import ErrorCharge from '../components/ErrorCharge'
 import PokeList from '../components/PokeList'
 import { getPokemons } from '../services/PokemonService'
 import debounce from 'lodash.debounce'
+import PokeItem from '../components/PokeItem'
 export default class App extends React.Component {
   constructor (props) {
     super(props)
@@ -37,13 +38,17 @@ export default class App extends React.Component {
       .then((pokemons) => { this.setState({ pokemons }) })
   }
 
+  onClickPokemon (pokemon) {
+    console.log(pokemon.name)
+  }
+
   render () {
     return (
       <Layout classes='Full-Page'>
         <ErrorBoundary errorComponent={ErrorCharge}>
           <h1>{this.state.title}</h1>
           <SearchInput value={this.state.search} onChange={this.onChangeSearch} />
-          <PokeList pokemons={this.state.pokemons} />
+          <PokeList pokemons={this.state.pokemons} onClickPokemon={this.onClickPokemon} PokeComponent={PokeItem} />
         </ErrorBoundary>
       </Layout>
     )
