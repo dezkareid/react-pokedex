@@ -3,7 +3,12 @@ import React from 'react'
 export default function PokeItem (props) {
   return (
     <li>
-      {props.name}
+      <figure>
+        <img src={props.avatar} />
+        <figcaption>
+          <span>{props.name}</span>
+        </figcaption>
+      </figure>
     </li>
   )
 }
