@@ -1,9 +1,11 @@
 import React from 'react'
+import PokeItem from '../PokeItem'
+import './PokeList.css'
 
 export default function PokeList (props) {
-  const listPokemons = props.pokemons.map((pokemon) => <li key={pokemon.id}>{pokemon.name}</li>)
+  const listPokemons = props.pokemons.map((pokemon) => <PokeItem key={pokemon.id} name={pokemon.name} />)
   return (
-    <ul>
+    <ul className='PokeList'>
       {listPokemons}
     </ul>
   )
