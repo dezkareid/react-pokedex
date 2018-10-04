@@ -33,7 +33,7 @@ export default class App extends React.Component {
         <ErrorBoundary errorComponent={ErrorCharge}>
           <h1>{this.state.title}</h1>
           <SearchInput value={this.state.search} onChange={this.onChangeSearch} />
-          <PokeList pokemons={this.state.pokemons} />
+          <PokeList pokemons={this.state.pokemons} filter={this.state.search} />
         </ErrorBoundary>
       </Layout>
     )
