@@ -1,3 +1,4 @@
+const React = require('react')
 const Enzyme = require('enzyme')
 const Adapter = require('enzyme-adapter-react-16')
 const { JSDOM } = require('jsdom')
@@ -17,6 +18,7 @@ function copyProps (src, target) {
   Object.defineProperties(target, props)
 }
 
+global.React = React
 global.window = window
 global.document = window.document
 global.navigator = {
