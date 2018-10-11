@@ -1,9 +1,10 @@
 import React from 'react'
+import PokePicture from '../PokePicture'
 
 export default function PokeItem (props) {
   return (
     <figure>
-      <img src={props.avatar} />
+      <PokePicture source={props.avatar} />
       <figcaption>
         <span>{props.name}</span>
       </figcaption>
