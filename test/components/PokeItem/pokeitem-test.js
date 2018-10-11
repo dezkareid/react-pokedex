@@ -10,7 +10,6 @@ describe('PokeItem suite', () => {
 
   test('When the prop avatar has value "bulbasaur", must be a img with src bulbasaur', () => {
     const wrapper = mount(<PokeItem avatar='bulbasaur' />)
-    console.log(wrapper.text())
     expect(wrapper.containsMatchingElement(<img src='bulbasaur' />)).toBeTruthy()
   })
 })
