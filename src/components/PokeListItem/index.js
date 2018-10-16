@@ -1,12 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { addRouting } from '../../Routing'
 export default function PokeListItem (props) {
   const { pokemon, PokeComponent } = props
+  const RoutedPokemon = addRouting(PokeComponent)
   return (
     <li onClick={() => props.onClickPokemon(pokemon)}>
-      <Link to={`pokemons/${pokemon.id}`}>
-        <PokeComponent {...pokemon} />
-      </Link>
+      <RoutedPokemon {...pokemon} path={`/pokemons/${pokemon.id}`} />
     </li>
   )
 }
