@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --mode development",
+    "storybook": "start-storybook -p 9001 -c stories",
     "test:components": "jest --config test/components/jest.config.js",
     "test:units": "jest --config test/unit/jest.config.js"
   },
@@ -19,7 +20,8 @@
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
-    "babel-core": "^7.0.0-bridg",
+    "@storybook/react": "4.0.0-alpha.25",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.0",
