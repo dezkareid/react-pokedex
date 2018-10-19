@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+const keys = require('./keys')
 
 const config = {
   devServer: {
@@ -44,6 +45,7 @@ const config = {
       template: './src/index.html',
       filename: './index.html'
     }),
+    new webpack.DefinePlugin(keys),
     new webpack.HotModuleReplacementPlugin()
   ]
 }
