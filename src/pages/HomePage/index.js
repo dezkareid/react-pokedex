@@ -14,6 +14,18 @@ export default class HomePage extends React.Component {
     }
     this.onChangeSearch = this.onChangeSearch.bind(this)
     this.fetchPokemons = debounce(this.fetchPokemons, 500)
+    setTimeout(() => {
+      const pokemon = { id: 3, name: 'Venasaur', avatar: 'https://vignette.wikia.nocookie.net/es.pokemon/images/9/9a/Bulbasaur_%28anime_AG%29.png/revision/latest?cb=20120906022549' }
+      this.addPokemon(pokemon)
+    }, 5000)
+  }
+
+  addPokemon (pokemon) {
+    this.setState((prevState) => {
+      return {
+        pokemons: [ ...prevState.pokemons, pokemon ]
+      }
+    })
   }
 
   onChangeSearch (event) {
