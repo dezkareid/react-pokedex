@@ -1,0 +1,27 @@
+.PokeList {
+  list-style-type: none;
+
+  &-appear {
+    opacity: 0.01;
+    &.PokeList-appear-active {
+      opacity: 1;
+      transition: opacity .5s ease-in;
+    }
+  }
+  
+  &-enter {
+    opacity: 0.01;
+    &.PokeList-enter-active {
+      opacity: 1;
+      transition: opacity 500ms ease-in;
+    }
+  }
+  
+  &-leave {
+    opacity: 1;
+    &.PokeList-leave-active {
+      opacity: 0.01;
+      transition: opacity 300ms ease-in;
+    }
+  }
+}
