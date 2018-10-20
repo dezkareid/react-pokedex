@@ -5,12 +5,12 @@ import { getPokemons } from '../../services/PokemonService'
 import debounce from 'lodash.debounce'
 import PokeItem from '../../components/PokeItem'
 import FirebaseAdapter from '../../utils/FirebaseAdapter'
+import Context from '../../AppContext'
 const auth = FirebaseAdapter.getAuth()
-export default class HomePage extends React.Component {
+export class HomePage extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      auth: false,
       title: 'Pokedex',
       search: '',
       pokemons: []
@@ -20,15 +20,8 @@ export default class HomePage extends React.Component {
     setTimeout(() => {
       const pokemon = { id: 3, name: 'Venasaur', avatar: 'https://vignette.wikia.nocookie.net/es.pokemon/images/9/9a/Bulbasaur_%28anime_AG%29.png/revision/latest?cb=20120906022549' }
       this.addPokemon(pokemon)
-    }, 5000)
+    }, 1000)
     this.authenticate = this.authenticate.bind(this)
-    auth().onAuthStateChanged((auth) => {
-      if (auth) {
-        this.setState({ auth })
-      } else {
-        this.setState({ auth: false })
-      }
-    })
   }
 
   addPokemon (pokemon) {
@@ -69,10 +62,18 @@ export default class HomePage extends React.Component {
     return (
       <React.Fragment>
         <h1>{this.state.title}</h1>
-        { this.state.auth ? null : <button onClick={this.authenticate}>Identificate</button>}
+        { this.props.auth ? null : <button onClick={this.authenticate}>Identificate</button>}
         <SearchInput value={this.state.search} onChange={this.onChangeSearch} />
         <PokeList pokemons={this.state.pokemons} onClickPokemon={this.onClickPokemon} PokeComponent={PokeItem} />
       </React.Fragment>
     )
   }
+}
+
+export default () => {
+  return (
+    <Context.Consumer>
+      { (value) => <HomePage {...value} />}
+    </Context.Consumer>
+  )
 }
