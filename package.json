@@ -17,7 +17,8 @@
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.5.2",
     "react-router-dom": "^4.3.1",
-    "react-transition-group": "1.x"
+    "react-transition-group": "1.x",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
