@@ -3,6 +3,10 @@ const webpack = require('webpack')
 const keys = require('./keys')
 
 const config = {
+  entry: {
+    polyfills: './src/polyfills.js',
+    app: './src/index.js'
+  },
   devServer: {
     compress: true,
     hot: true,
@@ -43,7 +47,8 @@ const config = {
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/index.html',
-      filename: './index.html'
+      filename: './index.html',
+      inject: false
     }),
     new webpack.DefinePlugin(keys),
     new webpack.HotModuleReplacementPlugin()
