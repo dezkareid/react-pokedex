@@ -1,3 +1,5 @@
 export const ADD_POKEMONS = 'ADD_POKEMONS'
 
 export const ADD_POKEMON = 'ADD_POKEMON'
+
+export const SEARCH_POKEMON = 'SEARCH_POKEMON'
