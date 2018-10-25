@@ -3,7 +3,7 @@ import PokeList from '../../components/PokeList'
 import PokeItem from '../../components/PokeItem'
 import FirebaseAdapter from '../../utils/FirebaseAdapter'
 import Context from '../../AppContext'
-import { fetchPokemons } from '../../state/actions'
+import { fetchPokemonsSaga } from '../../state/actions'
 import { connect } from 'react-redux'
 const auth = FirebaseAdapter.getAuth()
 export class HomePage extends React.Component {
@@ -40,7 +40,7 @@ export class HomePage extends React.Component {
 }
 function mapDispatchToProps (dispatch) {
   return {
-    fetchPokemons: () => dispatch(fetchPokemons())
+    fetchPokemons: () => dispatch(fetchPokemonsSaga())
   }
 }
 
