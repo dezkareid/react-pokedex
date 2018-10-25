@@ -22,7 +22,6 @@ export function PokeList (props) {
 }
 
 function mapStateToProps (state) {
-  console.log(state.home.pokemons)
   return {
     pokemons: Object.values(state.home.pokemons)
   }
