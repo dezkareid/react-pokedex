@@ -2,8 +2,9 @@ import React from 'react'
 import { CSSTransitionGroup } from 'react-transition-group'
 import './PokeList.scss'
 import PokeListItem from '../PokeListItem'
+import { connect } from 'react-redux'
 
-export default function PokeList (props) {
+export function PokeList (props) {
   const { pokemons, ...restProperties } = props
   const listPokemons = pokemons.map((pokemon) => <PokeListItem key={pokemon.id} pokemon={pokemon} {...restProperties} />)
   return (
@@ -19,3 +20,12 @@ export default function PokeList (props) {
     </ul>
   )
 }
+
+function mapStateToProps (state) {
+  console.log(state.home.pokemons)
+  return {
+    pokemons: Object.values(state.home.pokemons)
+  }
+}
+
+export default connect(mapStateToProps)(PokeList)
